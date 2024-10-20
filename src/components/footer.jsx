@@ -1,8 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Facebook, Instagram, Twitter, Linkedin, Youtube } from 'lucide-react'
+import { Facebook, Instagram, Twitter, Linkedin, Youtube, MapPin, Phone, Mail } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 
 const aboutLinks = [
   "About Us",
@@ -72,10 +73,12 @@ export function FooterComponent() {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="mb-8">
-            <img
+            <Image
               src="/logo.svg"
               alt="Thrillophilia"
-              className="h-12 mb-6"
+              width={144}
+              height={48}
+              className="mb-6"
             />
             <p className="text-gray-400 mb-4">Discover and book amazing travel experiences with Thrillophilia.</p>
             <div className="flex space-x-4">
