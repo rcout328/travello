@@ -24,7 +24,7 @@ export function TripPackageDetails() {
     (<div className="container mx-auto p-4 tgus">
       <h1 className="text-4xl font-bold text-center text-yellow-500 mb-8">End Of Trip</h1>
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-        <h2 className="text-2xl font-semibold p-6 bg-gray-50">What's inside the package?</h2>
+        <h2 className="text-2xl font-semibold p-6 bg-gray-50">What&apos;s inside the package?</h2>
         <div className="md:flex">
           <div className="md:w-1/2 p-6 border-r border-gray-200">
             <h3 className="text-xl font-semibold mb-4">Inclusions</h3>

@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import Image from 'next/image'
 import { Search, Star } from 'lucide-react';
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -18,22 +19,28 @@ export function TravelBooking() {
       <div className="flex flex-col sm:flex-row justify-between items-start mb-6 space-y-4 sm:space-y-0 mt-2">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 w-full">
           <div className="md:col-span-2 rounded-lg overflow-hidden">
-            <img
+            <Image
               src="https://media1.thrillophilia.com/filestore/4cgc0ibn1rqwvli84izupxwe45nv_shutterstock_2384596901%20(1).jpg?w=580&dpr=2"
               alt="Dubai Mosque"
+              width={580}
+              height={387}
               className="w-full h-64 md:h-full object-cover" />
           </div>
           <div className="grid grid-cols-2 md:grid-cols-1 gap-4">
             <div className="rounded-lg overflow-hidden">
-              <img
+              <Image
                 src="https://media1.thrillophilia.com/filestore/plo8mfkpn40x6t8w3vzypnje6fnx_shutterstock_2042237531.jpg?w=1080&h=auto&dpr=2"
                 alt="Dubai Cityscape"
+                width={1080}
+                height={720}
                 className="w-full h-32 md:h-full object-cover" />
             </div>
             <div className="rounded-lg overflow-hidden">
-              <img
+              <Image
                 src="https://media1.thrillophilia.com/filestore/6rk65fm7o2fy9kudpathwks0tei3_shutterstock_1682937292.jpg?h=465&w=auto&dpr=2"
                 alt="Dubai Pool"
+                width={697}
+                height={465}
                 className="w-full h-32 md:h-full object-cover" />
             </div>
           </div>
@@ -93,7 +100,7 @@ export function TravelBooking() {
               <div
                 key={days}
                 className="border rounded-lg p-2 text-center cursor-pointer hover:bg-gray-100">
-                <img
+                <Image
                   src={days === 3 ? "https://media1.thrillophilia.com/filestore/4cgc0ibn1rqwvli84izupxwe45nv_shutterstock_2384596901%20(1).jpg?w=580&dpr=2" :
                       days === 4 ? "https://media1.thrillophilia.com/filestore/plo8mfkpn40x6t8w3vzypnje6fnx_shutterstock_2042237531.jpg?w=1080&h=auto&dpr=2" :
                       days === 5 ? "https://media1.thrillophilia.com/filestore/6rk65fm7o2fy9kudpathwks0tei3_shutterstock_1682937292.jpg?h=465&w=auto&dpr=2" :
@@ -101,6 +108,8 @@ export function TravelBooking() {
                       days === 7 ? "https://media1.thrillophilia.com/filestore/6o8cgiiftp8bj4cr99ovkl6sdppi_1624943967_shutterstock_1600886326.jpg?w=300&dpr=1.6" :
                       "/placeholder.svg?height=100&width=100"}
                   alt={`${days} days`}
+                  width={300}
+                  height={200}
                   className="w-full h-24 object-cover rounded mb-2" />
                 <div className="font-semibold">{days} days</div>
                 <div className="text-sm text-gray-600">₹ {days * 10000}</div>
@@ -132,8 +141,8 @@ export function TravelBooking() {
             <h2 className="text-xl font-semibold mb-2">Trip Highlights</h2>
             <ul className="list-disc pl-5 space-y-2">
               <li>Dive into a world of luxury, from pristine beaches to towering skyscrapers, from thrilling desert safaris to world-class shopping in Dubai.</li>
-              <li>Get a surreal experience as you stand on the 125th floor of the world's tallest building, Burj Khalifa, offering views of Dubai's cityscape and shimmering coastline.</li>
-              <li>Feel the adrenaline rush as you go for a dune-bashing adventure in Dubai's expansive desert, creating a thrilling experience amidst the golden landscape.</li>
+              <li>Get a surreal experience as you stand on the 125th floor of the world&apos;s tallest building, Burj Khalifa, offering views of Dubai&apos;s cityscape and shimmering coastline.</li>
+              <li>Feel the adrenaline rush as you go for a dune-bashing adventure in Dubai&apos;s expansive desert, creating a thrilling experience amidst the golden landscape.</li>
             </ul>
           </div>
         </div>

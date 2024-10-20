@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import Image from 'next/image'
 import { ChevronLeft, ChevronRight, LightbulbIcon, Building2, Car } from 'lucide-react';
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -47,9 +48,11 @@ export function LasVegasItinerary() {
         </TabsList>
       </Tabs>
       <div className="relative rounded-lg overflow-hidden mb-6">
-        <img
+        <Image
           src="https://media1.thrillophilia.com/filestore/rn0vanc4z96b104lm8n4j0sac1w2_shutterstock_1853029780.jpg?ar=16%3A9&w=700&dpr=2"
           alt="Dubai Cityscape"
+          width={700}
+          height={394}
           className="w-full h-64 sm:h-96 object-cover" />
         <Button
           variant="outline"
@@ -70,10 +73,12 @@ export function LasVegasItinerary() {
         <div className="absolute bottom-4 right-4 flex items-center space-x-2">
           <div className="flex -space-x-4">
             {[1, 2, 3, 4].map((_, index) => (
-              <img
+              <Image
                 key={index}
                 src={`/placeholder.svg?height=50&width=50&text=${index + 1}`}
                 alt={`Thumbnail ${index + 1}`}
+                width={32}
+                height={32}
                 className="w-8 h-8 rounded-full border-2 border-white" />
             ))}
           </div>
@@ -97,11 +102,11 @@ export function LasVegasItinerary() {
             </div>
           </AccordionTrigger>
           <AccordionContent>
-            <p>Welcome to Dubai! After arriving at the airport, transfer to your hotel and check-in. In the evening, enjoy a memorable Dhow Marina Dinner Cruise, experiencing the city's stunning skyline from the water.</p>
+            <p>Welcome to Dubai! After arriving at the airport, transfer to your hotel and check-in. In the evening, enjoy a memorable Dhow Marina Dinner Cruise, experiencing the city&apos;s stunning skyline from the water.</p>
             <div className="mt-4 flex space-x-2">
-              <img src="/itinerary-banner-img" alt="Gallery 1" className="w-1/3 h-20 object-cover rounded" />
-              <img src="/itinerary-banner-img" alt="Gallery 2" className="w-1/3 h-20 object-cover rounded" />
-              <img src="/itinerary-banner-img" alt="Gallery 3" className="w-1/3 h-20 object-cover rounded" />
+              <Image src="/itinerary-banner-img" alt="Gallery 1" width={200} height={80} className="w-1/3 h-20 object-cover rounded" />
+              <Image src="/itinerary-banner-img" alt="Gallery 2" width={200} height={80} className="w-1/3 h-20 object-cover rounded" />
+              <Image src="/itinerary-banner-img" alt="Gallery 3" width={200} height={80} className="w-1/3 h-20 object-cover rounded" />
             </div>
           </AccordionContent>
         </AccordionItem>
@@ -115,9 +120,9 @@ export function LasVegasItinerary() {
           <AccordionContent>
             <p>Start your day with a visit to the iconic Burj Khalifa, ascending to the 124th and 125th floors for breathtaking views. In the afternoon, embark on an exhilarating Desert Safari, culminating in a traditional BBQ dinner under the stars.</p>
             <div className="mt-4 flex space-x-2">
-              <img src="/itinerary-banner-img" alt="Gallery 1" className="w-1/3 h-20 object-cover rounded" />
-              <img src="/itinerary-banner-img" alt="Gallery 2" className="w-1/3 h-20 object-cover rounded" />
-              <img src="/itinerary-banner-img" alt="Gallery 3" className="w-1/3 h-20 object-cover rounded" />
+              <Image src="/itinerary-banner-img" alt="Gallery 1" width={200} height={80} className="w-1/3 h-20 object-cover rounded" />
+              <Image src="/itinerary-banner-img" alt="Gallery 2" width={200} height={80} className="w-1/3 h-20 object-cover rounded" />
+              <Image src="/itinerary-banner-img" alt="Gallery 3" width={200} height={80} className="w-1/3 h-20 object-cover rounded" />
             </div>
           </AccordionContent>
         </AccordionItem>
