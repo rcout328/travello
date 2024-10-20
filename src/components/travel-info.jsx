@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Calendar, Clock, Heart, MessageSquareStar, Phone, Users } from 'lucide-react'
+import { Calendar, Clock, Heart, MessageSquare, Phone, Users } from 'lucide-react'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 
 const InfoCard = ({
@@ -35,7 +35,7 @@ export function TravelInfo() {
             title="10 Million+"
             description="Happy customers from 65+ countries all around." />
           <InfoCard
-            icon={MessageSquareStar}
+            icon={MessageSquare}
             title="4.6 / 5.0"
             description="Cumulative ratings of our trips across platforms." />
           <InfoCard
