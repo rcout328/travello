@@ -16,8 +16,8 @@ export function TravelBooking() {
   return (
     <div className="container mx-auto p-4">
       <Header/>
-      <div className="flex flex-col sm:flex-row justify-between items-start mb-6 space-y-4 sm:space-y-0 mt-2">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 w-full">
+      <div className="flex flex-col lg:flex-row justify-between items-start mb-6 space-y-4 lg:space-y-0 mt-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6 w-full">
           <div className="md:col-span-2 rounded-lg overflow-hidden">
             <Image
               src="https://media1.thrillophilia.com/filestore/4cgc0ibn1rqwvli84izupxwe45nv_shutterstock_2384596901%20(1).jpg?w=580&dpr=2"
@@ -48,8 +48,8 @@ export function TravelBooking() {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
-          <h1 className="text-3xl font-bold mb-4">Escape to Dubai | Flights Inclusive Deal</h1>
-          <div className="flex items-center space-x-4 mb-4">
+          <h1 className="text-2xl md:text-3xl font-bold mb-4">Escape to Dubai | Flights Inclusive Deal</h1>
+          <div className="flex flex-wrap items-center space-x-4 mb-4">
             <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded">5D/4N</span>
             <span>Days in Dubai</span>
           </div>
@@ -146,7 +146,7 @@ export function TravelBooking() {
             </ul>
           </div>
         </div>
-        <div>
+        <div className="lg:sticky lg:top-4">
           <div className="bg-white p-6 rounded-lg shadow-lg">
             <div className="flex justify-between items-center mb-4">
               <div>
@@ -206,7 +206,6 @@ export function TravelBooking() {
       <div className="mt-8">
         <TravelInfo/>
       </div>
-
     </div>
   );
 }

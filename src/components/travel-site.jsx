@@ -5,6 +5,7 @@ import { Search, ChevronDown, ChevronLeft, ChevronRight, Star, Phone, Calendar, 
 import { EnhancedTourismBoardComponent } from './enhanced-tourism-board'
 import Link from 'next/link'
 import Header from './Header'
+import { FooterComponent } from './footer'
 import { Dialog, DialogContent, DialogOverlay, DialogTrigger } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
@@ -120,8 +121,8 @@ export function TravelSite() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-     <Header/>
+    <div className="min-h-screen bg-white flex flex-col">
+      <Header/>
       <nav className="bg-white shadow-md py-4 mb-8 overflow-x-auto bg-white">
         <div className="container mx-auto px-4 relative">
           <button
@@ -148,7 +149,7 @@ export function TravelSite() {
           </button>
         </div>
       </nav>
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 py-8 flex-grow">
         <h2 className="text-3xl font-bold mb-8">Featured Tours</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {tours.map((tour) => (
@@ -238,6 +239,7 @@ export function TravelSite() {
         </div>
         <EnhancedTourismBoardComponent />
       </main>
+      <FooterComponent />
     </div>
   );
 }

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const tourismBoards = [
   { name: 'France', logo: 'https://media1.thrillophilia.com/filestore/France_review_page.png?w=300&dpr=2' },
@@ -105,48 +106,55 @@ export function EnhancedTourismBoardComponent() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // Change image every 3 seconds
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [images.length]);
 
   return (
-    (<div className="container mx-auto px-4 py-8 bg-white">
-      <h1 className="text-4xl font-bold text-center mb-12 text-gray-800">Tourism Board Alliances</h1>
-      <div className="flex flex-wrap justify-center items-center gap-8 mb-16">
+    <div className="container mx-auto px-4 py-8 bg-white">
+      <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-800">Tourism Board Alliances</h1>
+      <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 lg:gap-8 mb-8 md:mb-12 lg:mb-16">
         {tourismBoards.map((board) => (
-          <img
+          <Image
             key={board.name}
             src={board.logo}
             alt={`${board.name} Tourism Board`}
-            className="h-16 object-contain hover:scale-110 transition-transform duration-300" />
+            width={100}
+            height={60}
+            className="h-12 md:h-14 lg:h-16 w-auto object-contain hover:scale-110 transition-transform duration-300"
+          />
         ))}
       </div>
-      <h2 className="text-3xl font-semibold mb-8 text-gray-800">Activities In Dubai</h2>
-      <div className="space-y-8">
+      <h2 className="text-2xl md:text-3xl font-semibold mb-6 md:mb-8 text-gray-800">Activities In Dubai</h2>
+      <div className="space-y-6 md:space-y-8">
         {activities.map((activity) => (
           <Card
             key={activity.name}
-            className="overflow-hidden hover:shadow-lg transition-shadow duration-300 bg-white rounded-lg">
+            className="overflow-hidden hover:shadow-lg transition-shadow duration-300 bg-white rounded-lg"
+          >
             <CardContent className="p-0">
-              <div className="md:flex">
-                <div className="md:flex-shrink-0 relative">
-                  <img
-                    className="h-full w-full object-cover md:w-64"
+              <div className="flex flex-col md:flex-row">
+                <div className="md:w-1/3 lg:w-1/4 relative">
+                  <Image
                     src={activity.image}
-                    alt={activity.name} />
-                  <div className="absolute top-0 left-0 bg-orange-500 text-white px-2 py-1 text-sm font-semibold rounded-br-lg">
+                    alt={activity.name}
+                    width={300}
+                    height={200}
+                    className="w-full h-48 md:h-full object-cover"
+                  />
+                  <div className="absolute top-0 left-0 bg-orange-500 text-white px-2 py-1 text-xs md:text-sm font-semibold rounded-br-lg">
                     Featured
                   </div>
                 </div>
-                <div className="p-8 flex flex-col justify-between w-full">
+                <div className="p-4 md:p-6 lg:p-8 flex flex-col justify-between w-full md:w-2/3 lg:w-3/4">
                   <div>
-                    <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-2xl font-semibold text-gray-900">{activity.name}</h3>
+                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                      <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-2 md:mb-0">{activity.name}</h3>
                       <div className="flex items-center bg-yellow-100 px-2 py-1 rounded">
-                        <Star className="w-5 h-5 text-yellow-500 fill-current" />
-                        <span className="ml-1 text-lg font-medium text-gray-700">{activity.rating}</span>
-                        <span className="ml-1 text-sm text-gray-500">({activity.reviews})</span>
+                        <Star className="w-4 h-4 md:w-5 md:h-5 text-yellow-500 fill-current" />
+                        <span className="ml-1 text-base md:text-lg font-medium text-gray-700">{activity.rating}</span>
+                        <span className="ml-1 text-xs md:text-sm text-gray-500">({activity.reviews})</span>
                       </div>
                     </div>
                     <div className="mt-2 flex flex-wrap gap-2">
@@ -156,25 +164,25 @@ export function EnhancedTourismBoardComponent() {
                         </Badge>
                       ))}
                     </div>
-                    <p className="mt-4 text-gray-600 line-clamp-3">{activity.description}</p>
+                    <p className="mt-4 text-sm md:text-base text-gray-600 line-clamp-3">{activity.description}</p>
                   </div>
-                  <div className="mt-6">
+                  <div className="mt-4 md:mt-6">
                     <div className="flex items-center text-gray-600 mb-4">
-                      <Clock className="w-5 h-5 mr-2" />
-                      <span className="text-sm font-medium">{activity.duration}</span>
+                      <Clock className="w-4 h-4 md:w-5 md:h-5 mr-2" />
+                      <span className="text-xs md:text-sm font-medium">{activity.duration}</span>
                     </div>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-sm font-medium text-gray-500">{activity.ticketName}</p>
+                    <div className="flex flex-col md:flex-row md:items-center justify-between">
+                      <div className="mb-4 md:mb-0">
+                        <p className="text-xs md:text-sm font-medium text-gray-500">{activity.ticketName}</p>
                         <div className="mt-1 flex items-baseline">
-                          <span className="text-2xl font-bold text-orange-600">₹{activity.price}</span>
+                          <span className="text-xl md:text-2xl font-bold text-orange-600">₹{activity.price}</span>
                           {activity.originalPrice && (
-                            <span className="ml-2 text-sm line-through text-gray-400">₹{activity.originalPrice}</span>
+                            <span className="ml-2 text-xs md:text-sm line-through text-gray-400">₹{activity.originalPrice}</span>
                           )}
                         </div>
                       </div>
                       <Link href="/travelbooking">
-                        <Button className="bg-orange-500 hover:bg-orange-600 text-white transition-colors duration-300">
+                        <Button className="w-full md:w-auto bg-orange-500 hover:bg-orange-600 text-white transition-colors duration-300">
                           Book Now
                           <ChevronRight className="ml-2 h-4 w-4" />
                         </Button>
@@ -187,6 +195,6 @@ export function EnhancedTourismBoardComponent() {
           </Card>
         ))}
       </div>
-    </div>)
+    </div>
   );
 }
