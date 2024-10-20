@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Facebook, Instagram, Twitter, Linkedin, Youtube, ChevronDown, ChevronUp, MapPin, Phone, Mail } from 'lucide-react'
+import { Facebook, Instagram, Twitter, Linkedin, Youtube } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const aboutLinks = [
@@ -19,42 +19,35 @@ const supplierLinks = ["List Your Activities", "Supplier Login", "Become a Partn
 const brandLinks = ["Partner With Us", "Destination Marketing", "Advertise With Us"]
 const travellerLinks = ["Gift an Experience", "Travel Insurance", "Travel Guide"]
 
-const FooterSection = ({ title, links, className }) => {
+const FooterSection = ({ title, links }) => {
   const [isOpen, setIsOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(true)
+
+  useEffect(() => {
+    const checkWindowSize = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    checkWindowSize()
+    window.addEventListener('resize', checkWindowSize)
+    return () => window.removeEventListener('resize', checkWindowSize)
+  }, [])
 
   return (
-    <div className={`mb-6 ${className}`}>
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-full text-lg font-semibold mb-4 focus:outline-none md:hidden"
-      >
-        {title}
-        {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-      </button>
+    <div className="mb-6">
       <h3 className="text-lg font-semibold mb-4 hidden md:block">{title}</h3>
       <AnimatePresence>
-        {(isOpen || window.innerWidth >= 768) && (
+        {(!isMobile || isOpen) && (
           <motion.ul
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
             className="space-y-2"
           >
             {links.map((link, index) => (
-              <motion.li
-                key={index}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <a
-                  href="#"
-                  className={`text-sm hover:underline ${link === "Fraud Alert" ? "text-red-500" : "text-gray-600"}`}
-                >
-                  {link}
-                </a>
-              </motion.li>
+              <li key={index}>
+                <a href="#" className="text-sm text-gray-600 hover:underline">{link}</a>
+              </li>
             ))}
           </motion.ul>
         )}
